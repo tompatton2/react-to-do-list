@@ -125,7 +125,7 @@ class App extends React.Component {
           {!this.state.loading && (
             <>
               <img src={logo} className="App-logo" alt="logo" />
-              <div className="container" style={{ minWidth: "500px" }}>
+              <div className="container" style={{ width: "475px" }}>
                 {this.state.notification && (
                   <div className="alert alert-success">
                     <p className="textCenter">{this.state.notification}</p>
@@ -133,21 +133,23 @@ class App extends React.Component {
                 )}
                 <br />
                 <ul className="list-group">
-                  <input
-                    type="text"
-                    className="my-4 form-control"
-                    placeholder="Add a new todo"
-                    onChange={this.handleChange}
-                    value={this.state.newTodo}
-                  />
-                  <br />
-                  <button
-                    className="btn-info form-control"
-                    onClick={this.state.editing ? this.updateTodo: this.addTodo}
-                    // disabled={this.state.newTodo < 5}
-                  >
-                    { this.state.editing ? "Edit Item" : "Add Item"}
-                  </button>
+                  <div style={{ display: "flex" }}>
+                    <input
+                      type="text"
+                      className="my-4 form-control"
+                      placeholder="Add a new todo"
+                      onChange={this.handleChange}
+                      value={this.state.newTodo}
+                    />
+                    <button
+                      className="btn-info form-control"
+                      style={{width: "100px", marginLeft: "20px"}}
+                      onClick={this.state.editing ? this.updateTodo: this.addTodo}
+                      // disabled={this.state.newTodo < 5}
+                    >
+                      { this.state.editing ? "Update" : "New"}
+                    </button>
+                  </div>
                   <br />
                   {!this.state.editing && this.state.todos.map((item, index) => {
                     return (
